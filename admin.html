@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Water Accounts</title>
+    <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
+</head>
+
+<body>
+
+    <!--Container used for boostrap content-->
+    <div class="container">
+
+        <!--Navigation Menu-->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="admin.html">Welcome to Liquorish Family Trust</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+
+                        <li><a href="admin.html">Water Meter reading</a>
+                        </li>
+                        <li><a href="levy.html">Water Loss Levy</a>
+                        </li>
+                        <li><a href="http://www.invoicehome.com">Invoice for Units</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+    <h1>Water Meter Calculation</h1>
+    <p>Calculates the water usage for unit B and A 21 churchill Avenue</p>
+
+    <form>
+
+        <div class="form-group">
+            <h1>Unit B</h1>
+            <p>Current Month Meter Reading Unit B:</p>
+            <input type="text" name="Current Month Meter Reading For Unit B" id="currentB" />
+            <br>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <p>Previous Month Meter Reading Unit B:</p>
+            <input type="text" name="Previous Month Meter Reading Unit B" id="previousB" />
+        </div>
+
+        <div class="form-group">
+            <p>Kilo Liters for unit B:</p>
+            <input type="text" name="Kilo Liters for Unit B" id="klB" />
+            <br>
+        </div>
+
+        <div class="form-group">
+            <p>Amount Due Unit B:</p>
+            <input type="text" name="amount due" id="amount">
+        </div>
+
+
+
+        <input type="button" onclick="doCalc()" value="calculate">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <script type="text/javascript">
+            function doCalc() {
+                document.getElementById('klB').value = parseFloat(document.getElementById('currentB').value) - parseFloat(document.getElementById('previousB').value);
+                document.getElementById('amount').value = parseFloat(document.getElementById('klB').value) * (14.77);
+
+            }
+        </script>
+
+        <h1>Unit A</h1>
+        <div class="form-group">
+            <p>Current Month Meter Reading Unit A:</p>
+            <input type="text" name="Current Month Meter Reading For Unit A" id="currentA" />
+            <br>
+        </div>
+
+        <div class="form-group">
+            <p>Previous Month Meter Reading Unit A:</p>
+            <input type="text" name="Previous Month Meter Reading Unit A" id="previousA" />
+            <br>
+        </div>
+
+        <div class="form-group">
+            <p>Kilo Liters for unit A:</p>
+            <input type="text" name="Kilo Liters for Unit A:" id="klA" />
+            <br>
+        </div>
+
+        <div class="form-group">
+            <p>Amount Due Unit A:</p>
+            <input type="text" name="amount due" id="amountA">
+        </div>
+
+        <input type="button" onclick="doCalca()" value="calculate">
+
+        <script type="text/javascript">
+            function doCalca() {
+                document.getElementById('klA').value = parseFloat(document.getElementById('currentA').value) - parseFloat(document.getElementById('previousA').value) - parseFloat(document.getElementById('klB').value);
+                document.getElementById('amountA').value = parseFloat(document.getElementById('klA').value) * (14.75);
+            }
+        </script>
+    </form>
+    </div>
+</body>
+
+</html>

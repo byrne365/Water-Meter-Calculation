@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Water Accounts</title>
+    <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
+</head>
+
+<body>
+
+    <!--Container used for boostrap content-->
+    <div class="container">
+
+        <!--Navigation Menu-->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="admin.html">Welcome to Liquorish Family Trust</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="admin.html">Water Meter reading</a>
+                        </li>
+                        <li><a href="levy.html">Water Loss Levy</a>
+                        </li>
+                        <li><a href="http://www.invoicehome.com">Invoice for Units</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+    <h1>Water loss levy</h1>
+    <p>Calculates the water loss levy for unit B and A 21 Churchill Avenue</p>
+
+    <form>
+
+
+        <div class="form-group">
+            <p>Water Loss Levy Total:</p>
+            <input type="text" name="water loss Levy" id="levy" />
+        </div>
+
+        <div class="form-group">
+            <p>Amount Due per unit:</p>
+            <input type="text" name="per unit" id="levyA" />
+        </div>
+
+        <input type="button" onclick="doCalc()" value="calculate">
+
+
+        <script type="text/javascript">
+            function doCalc() {
+                document.getElementById('levyA').value = parseFloat(document.getElementById('levy').value) / 2;
+
+
+
+            }
+        </script>
+
+    </form>
+    </div>
+</body>
+
+</html>
