@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
 </head>
 
-<body>
-
+    <body>
     <!--Container used for boostrap content-->
     <div class="container">
-
         <!--Navigation Menu-->
         <nav class="navbar navbar-default">
             <div class="container">
@@ -30,39 +28,30 @@
                 </div>
             </div>
         </nav>
-
     </div>
-
-    <h1>Water loss levy</h1>
-    <p>Calculates the water loss levy for unit B and A 21 Churchill Avenue</p>
-
-    <form>
-
-
-        <div class="form-group">
-            <p>Water Loss Levy Total:</p>
-            <input type="text" name="water loss Levy" id="levy" />
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Water loss levy</h1>
+                <p>This page calculates the water loss levy for unit B and A 21 Churchill Avenue and devites it between the two houses. For an example follow the place holder and click CALCULATE.
+                Once comleted click on the Invoice button in the navbar.</p>
+            <form>
+                <div class="form-group">
+                    <p>Water Loss Levy Total:</p>
+                    <input type="text" placeholder="Simply enter 10" name="water loss Levy" id="levy" />
+                    <div class="form-group">
+                        <p>Amount Due per unit:</p>
+                        <input type="text" placeholder="click calculate to see the answer" name="per unit" id="levyA" />
+                     </div>
+                    <input type="button" onclick="doCalc()" value="calculate">
+                </div>
+                <script type="text/javascript">
+                    function doCalc() {
+                     document.getElementById('levyA').value = parseFloat(document.getElementById('levy').value) / 2;
+                    }
+                </script>
+            </form>
         </div>
-
-        <div class="form-group">
-            <p>Amount Due per unit:</p>
-            <input type="text" name="per unit" id="levyA" />
-        </div>
-
-        <input type="button" onclick="doCalc()" value="calculate">
-
-
-        <script type="text/javascript">
-            function doCalc() {
-                document.getElementById('levyA').value = parseFloat(document.getElementById('levy').value) / 2;
-
-
-
-            }
-        </script>
-
-    </form>
-    </div>
-</body>
-
+    </body>
 </html>
