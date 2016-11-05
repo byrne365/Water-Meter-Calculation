@@ -1,1 +1,110 @@
-Hello world
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Water Accounts</title>
+        <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
+    </head>
+
+    <body>
+    <!--Container used for boostrap content-->
+    <div class="container">
+
+        <!--Navigation Menu-->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="admin.html">Welcome to Liquorish Family Trust</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+
+                        <li><a href="admin.html">Water Meter reading</a>
+                        </li>
+                        <li><a href="levy.html">Water Loss Levy</a>
+                        </li>
+                        <li><a href="http://www.invoicehome.com">Invoice for Units</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" class="form-group">
+                <h1>How it Works</h1>
+                    <h4 class="title-super text-thin">This calculates the amount due for two Houses who share a water meter but have a split water account. For an example enter under 'Unit B' as shown by the place holders and click on CALCULATE and then move onto 'Unit A'. Enter as shown by the place holders and click calculate.
+                        'Unit A' is for the main house on the property, it also has the main water meter which feeds 'Unit B'.</h4>
+            </div>
+        </div>
+        <form>
+        <div class="row">
+            <div class="col-md-12" class="form-group">
+                <h1>Water Meter Calculation</h1>
+                    <p>Calculates the water usage for unit B and A 21 churchill Avenue</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" class="form-group">
+                    <h1>Unit B</h1>
+                    <p>Current Month Meter Reading Unit B:</p>
+                        <input type="text" placeholder="enter 0264" name="Current Month Meter Reading For Unit B" id="currentB">
+                <br>
+                <div class="form-group">
+                    <p>Previous Month Meter Reading Unit B:</p>
+                        <input type="text" placeholder="enter 0227" name="Previous Month Meter Reading Unit B" id="previousB">
+
+                <div class="form-group">
+                    <p>Kilo Liters for unit B:</p>
+                        <input type="text" placeholder="click calculate" name="Kilo Liters for Unit B" id="klB" />
+                        <br>
+
+                <div class="form-group">
+                 <p>Amount Due Unit B:</p>
+                     <input type="text" placeholder="click calculate" name="amount due" id="amount">
+                </div>
+                <input type="button" onclick="doCalc()" value="calculate">
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="col-md-6" class="form-group">
+                <h1>Unit A</h1>
+                    <p>Current Month Meter Reading Unit A:</p>
+                    <input type="text" placeholder="enter 11153" name="Current Month Meter Reading For Unit A" id="currentA" />
+            <br>
+            <div class="form-group">
+                <p>Previous Month Meter Reading Unit A:</p>
+                    <input type="text" placeholder="enter 11049" name="Previous Month Meter Reading Unit A" id="previousA" />
+            <br>
+            <div class="form-group">
+                <p>Kilo Liters for unit A:</p>
+                    <input type="text" placeholder="click calculate" name="Kilo Liters for Unit A:" id="klA" />
+            <br>
+            <div class="form-group">
+                <p>Amount Due Unit A:</p>
+                    <input type="text" placeholder="click calculate" name="amount due" id="amountA">
+            </div>
+            <input type="button" onclick="doCalca()" value="calculate">
+        </div>
+    </div>
+    </div>
+    </form>
+
+        <script type="text/javascript">
+            function doCalc() {
+                document.getElementById('klB').value = parseFloat(document.getElementById('currentB').value) - parseFloat(document.getElementById('previousB').value);
+                document.getElementById('amount').value = parseFloat(document.getElementById('klB').value) * (14.77);
+            }
+        </script>
+        <script type="text/javascript">
+            function doCalca() {
+                document.getElementById('klA').value = parseFloat(document.getElementById('currentA').value) - parseFloat(document.getElementById('previousA').value) - parseFloat(document.getElementById('klB').value);
+                document.getElementById('amountA').value = parseFloat(document.getElementById('klA').value) * (14.75);
+            }
+        </script>
+    </body>
+</html>
